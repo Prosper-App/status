@@ -18,6 +18,8 @@ sites:
     url: https://admin.prosper.codes
     expectedStatusCodes:
       - 200
+      - 301
+      - 302
 
 status-website:
   cname: status.prosper.codes
@@ -27,8 +29,38 @@ status-website:
   navbar:
     - title: Status
       href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
+  css: |
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    :root {
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --color-primary: #0055fe;
+      --color-secondary: #4f1ad6;
+    }
+    body {
+      font-family: var(--font-family) !important;
+    }
+    * {
+      font-family: var(--font-family) !important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-family) !important;
+    }
+    .status-up, .tag.is-success {
+      background-color: #dbfcbd !important;
+      color: #1a5c00 !important;
+    }
+    a {
+      color: #0055fe;
+    }
+    a:hover {
+      color: #4f1ad6;
+    }
+    .navbar-brand .navbar-item {
+      font-weight: 700;
+    }
+    footer, .footer {
+      display: none !important;
+    }
 
 workflowSchedule:
   uptime: "*/5 * * * *"
