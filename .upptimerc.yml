@@ -226,7 +226,11 @@ status-website:
         document.querySelectorAll('.tag.is-success').forEach(function(t){if(!t.dataset.lb){t.textContent='Operational';t.dataset.lb='1';}});
         document.querySelectorAll('.tag.is-danger').forEach(function(t){if(!t.dataset.lb){t.textContent='Down';t.dataset.lb='1';}});
       }
-      new MutationObserver(function(){addLabels();}).observe(document.body,{childList:true,subtree:true});
+      function startObserver(){
+        if(document.body){new MutationObserver(function(){addLabels();}).observe(document.body,{childList:true,subtree:true});addLabels();}
+        else{document.addEventListener('DOMContentLoaded',function(){new MutationObserver(function(){addLabels();}).observe(document.body,{childList:true,subtree:true});addLabels();});}
+      }
+      startObserver();
       function renderFallback(){
         if(!document.querySelectorAll('.loading').length)return;
         origFetch(RAW+'/history/summary.json').then(function(r){return r.json();}).then(function(sites){
@@ -274,7 +278,8 @@ status-website:
           main.appendChild(wrap);
         }).catch(function(){});
       }
-      setTimeout(function(){if(document.querySelectorAll('.loading').length>0)renderFallback();},3000);
+      function scheduleFallback(){setTimeout(function(){if(document.querySelectorAll('.loading').length>0)renderFallback();},3000);}
+      if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',scheduleFallback);}else{scheduleFallback();}
       if(window.location.pathname.indexOf('rate-limit')!==-1)window.location.href='/';
     })();
 
