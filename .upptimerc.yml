@@ -287,6 +287,24 @@ status-website:
     .fb-status.up .dot { background: #22c55e; }
     .fb-status.down .dot { background: #ef4444; }
     @media (max-width: 480px) { .fb-card { flex-direction: column; align-items: flex-start; } .fb-right { flex-direction: row; width: 100%; justify-content: space-between; } }
+    .detail-container { max-width: 720px; margin: 0 auto; padding: 2rem 1rem; }
+    .detail-back { display: inline-flex; align-items: center; gap: 4px; font-size: 0.8rem; color: rgba(255,255,255,0.4) !important; margin-bottom: 1.5rem; transition: color 0.2s; }
+    .detail-back:hover { color: rgba(255,255,255,0.7) !important; }
+    .detail-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
+    .detail-icon { width: 28px; height: 28px; border-radius: 6px; }
+    .detail-title { font-size: 1.4rem !important; font-weight: 600 !important; color: #fff !important; margin: 0 !important; letter-spacing: -0.02em !important; }
+    .detail-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 2rem; }
+    .stat-card { background: #111; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 16px; text-align: center; }
+    .stat-value { font-size: 1.3rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.04em; }
+    .detail-section { margin-bottom: 2rem; }
+    .detail-section-title { font-size: 0.75rem !important; font-weight: 500 !important; color: rgba(255,255,255,0.4) !important; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px !important; }
+    .graph-tabs { display: flex; gap: 4px; margin-bottom: 12px; }
+    .graph-tab { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); border-radius: 6px; padding: 5px 12px; font-size: 0.7rem; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .graph-tab:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); }
+    .graph-tab.active { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.15); }
+    .detail-graph { width: 100%; border-radius: 10px; background: #111; border: 1px solid rgba(255,255,255,0.08); padding: 8px; }
+    @media (max-width: 600px) { .detail-stats { grid-template-columns: repeat(2, 1fr); } }
   js: |
     (function(){
       var OWNER='Prosper-App',REPO='status';
@@ -312,6 +330,9 @@ status-website:
 
       /* --- Inject badges, uptime bars, move banner to nav, hide empties --- */
       function enhance(){
+        /* Detail page */
+        enhanceDetail();
+
         /* Badges on article.link cards */
         document.querySelectorAll('article.link').forEach(function(a){
           if(a.dataset.enh)return;a.dataset.enh='1';
@@ -361,6 +382,75 @@ status-website:
         /* Detail page: tag labels */
         document.querySelectorAll('.tag.is-success').forEach(function(t){if(!t.dataset.lb){t.textContent='Operational';t.dataset.lb='1';}});
         document.querySelectorAll('.tag.is-danger').forEach(function(t){if(!t.dataset.lb){t.textContent='Down';t.dataset.lb='1';}});
+      }
+
+      /* --- Detail page enhancement --- */
+      function enhanceDetail(){
+        var path=window.location.pathname;
+        if(path.indexOf('/history/')===- 1)return;
+        if(document.querySelector('.detail-container'))return;
+        var slug=path.replace('/history/','').replace(/\/$/,'');
+        if(!slug)return;
+        origFetch(RAW+'/history/summary.json').then(function(r){return r.json();}).then(function(sites){
+          var site=sites.find(function(s){return s.slug===slug;});
+          if(!site)return;
+          var main=document.querySelector('main');
+          if(!main)return;
+          while(main.firstChild)main.removeChild(main.firstChild);
+          var wrap=el('div','detail-container');
+          var back=el('a','detail-back','\u2190 All services');
+          back.href='/';
+          wrap.appendChild(back);
+          var hdr=el('div','detail-header');
+          var icon=document.createElement('img');icon.className='detail-icon';icon.src=site.icon;icon.alt='';
+          hdr.appendChild(icon);
+          var title=el('h1','detail-title',site.name);
+          var isUp=site.status==='up';
+          var badge=el('span','status-badge '+(isUp?'badge-up':'badge-down'));
+          badge.appendChild(el('span','badge-dot'));
+          badge.appendChild(document.createTextNode(isUp?'Operational':'Down'));
+          title.appendChild(badge);
+          hdr.appendChild(title);
+          wrap.appendChild(hdr);
+          var stats=el('div','detail-stats');
+          [{l:'Uptime (24h)',v:site.uptimeDay},{l:'Uptime (7d)',v:site.uptimeWeek},{l:'Uptime (30d)',v:site.uptimeMonth},{l:'Avg Response',v:site.time+'ms'}].forEach(function(s){
+            var card=el('div','stat-card');
+            card.appendChild(el('div','stat-value',s.v));
+            card.appendChild(el('div','stat-label',s.l));
+            stats.appendChild(card);
+          });
+          wrap.appendChild(stats);
+          var barSec=el('div','detail-section');
+          barSec.appendChild(el('h2','detail-section-title','Uptime (30 days)'));
+          var bar=el('div','uptime-bar');
+          for(var i=0;i<30;i++)bar.appendChild(el('div','bar-seg '+(isUp?'up':'unknown')));
+          barSec.appendChild(bar);
+          var lbl=el('div','bar-label');
+          lbl.appendChild(el('span',null,'30 days ago'));
+          lbl.appendChild(el('span',null,'Today'));
+          barSec.appendChild(lbl);
+          wrap.appendChild(barSec);
+          var gSec=el('div','detail-section');
+          gSec.appendChild(el('h2','detail-section-title','Response Time'));
+          var tabs=el('div','graph-tabs');
+          var gImg=document.createElement('img');
+          gImg.className='detail-graph';
+          gImg.src=RAW+'/graphs/'+slug+'/response-time-week.png';
+          gImg.alt='Response time';
+          [{k:'day',l:'24h'},{k:'week',l:'7d'},{k:'month',l:'30d'},{k:'year',l:'1y'}].forEach(function(p){
+            var tab=el('button','graph-tab'+(p.k==='week'?' active':''),p.l);
+            tab.addEventListener('click',function(){
+              tabs.querySelectorAll('.graph-tab').forEach(function(t){t.classList.remove('active');});
+              tab.classList.add('active');
+              gImg.src=RAW+'/graphs/'+slug+'/response-time-'+p.k+'.png';
+            });
+            tabs.appendChild(tab);
+          });
+          gSec.appendChild(tabs);
+          gSec.appendChild(gImg);
+          wrap.appendChild(gSec);
+          main.appendChild(wrap);
+        }).catch(function(){});
       }
 
       /* --- Start MutationObserver safely --- */
