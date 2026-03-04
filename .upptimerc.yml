@@ -1,0 +1,48 @@
+owner: Prosper-App
+repo: status
+
+sites:
+  - name: Prosper API (Staging)
+    url: https://stage.prosper.codes/health
+    expectedStatusCodes:
+      - 200
+  - name: Prosper Admin (Staging)
+    url: https://admin-stage.prosper.codes/health
+    expectedStatusCodes:
+      - 200
+  - name: Prosper API (Production)
+    url: https://api.prosper.love/api/ping
+    expectedStatusCodes:
+      - 200
+  - name: Prosper Website
+    url: https://prosper.love
+    expectedStatusCodes:
+      - 200
+
+status-website:
+  cname: status.prosper.codes
+  name: Prosper Status
+  logoUrl: https://prosper.love/favicon.ico
+  theme: light
+  navbar:
+    - title: Status
+      href: /
+    - title: GitHub
+      href: https://github.com/$OWNER/$REPO
+
+workflowSchedule:
+  uptime: "*/5 * * * *"
+  responseTime: "0 23 * * *"
+  graphs: "0 0 * * *"
+  staticSite: "0 1 * * *"
+  summary: "0 0 * * *"
+  updateTemplate: "0 0 * * *"
+  updates: "0 3 * * *"
+
+commitMessages:
+  readmeContent: "Update summary in README [skip ci]"
+  summaryJson: "Update status summary [skip ci]"
+  statusChange: "$SITE_NAME is $STATUS"
+  graphsUpdate: "Update graphs [skip ci]"
+  commitAuthorName: "Upptime Bot"
+  commitAuthorEmail: "upptime@prosper.codes"
