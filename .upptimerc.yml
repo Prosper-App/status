@@ -11,11 +11,11 @@ sites:
     expectedStatusCodes:
       - 200
   - name: Prosper API (Production)
-    url: https://api.prosper.love/api/ping
+    url: https://api.prosper.codes/health
     expectedStatusCodes:
       - 200
-  - name: Prosper Website
-    url: https://prosper.love
+  - name: Prosper Admin (Production)
+    url: https://admin.prosper.codes
     expectedStatusCodes:
       - 200
 

@@ -16,8 +16,8 @@ This repository contains the open-source uptime monitor and status page for [Pro
 | --- | ------ | ------- | ------------- | ------ |
 | [Prosper API (Staging)](https://stage.prosper.codes/health) | 🟩 Up | - | - | - |
 | [Prosper Admin (Staging)](https://admin-stage.prosper.codes/health) | 🟩 Up | - | - | - |
-| [Prosper API (Production)](https://api.prosper.love/api/ping) | 🟩 Up | - | - | - |
-| [Prosper Website](https://prosper.love) | 🟩 Up | - | - | - |
+| [Prosper API (Production)](https://api.prosper.codes/health) | 🟩 Up | - | - | - |
+| [Prosper Admin (Production)](https://admin.prosper.codes) | 🟩 Up | - | - | - |
 <!--end: status pages-->
 
 > This status page is powered by [Upptime](https://upptime.js.org).
