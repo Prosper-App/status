@@ -400,6 +400,7 @@ status-website:
           var wrap=el('div','detail-container');
           var back=el('a','detail-back','\u2190 All services');
           back.href='/';
+          back.addEventListener('click',function(e){e.preventDefault();window.location.href='/';});
           wrap.appendChild(back);
           var hdr=el('div','detail-header');
           var icon=document.createElement('img');icon.className='detail-icon';icon.src=site.icon;icon.alt='';
