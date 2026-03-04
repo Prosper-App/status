@@ -122,7 +122,7 @@ workflowSchedule:
 commitMessages:
   readmeContent: "Update summary in README [skip ci]"
   summaryJson: "Update status summary [skip ci]"
-  statusChange: "$SITE_NAME is $STATUS"
+  statusChange: "$EMOJI $SITE_NAME is $STATUS ($CODE in $RESPONSE_TIME ms)"
   graphsUpdate: "Update graphs [skip ci]"
   commitAuthorName: "Upptime Bot"
   commitAuthorEmail: "upptime@prosper.codes"
