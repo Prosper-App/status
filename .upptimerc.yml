@@ -37,64 +37,97 @@ status-website:
       --nav-border-bottom-color: rgba(255,255,255,0.08) !important;
       --nav-current-border-bottom-color: #ffffff !important;
       --card-border-color: rgba(255,255,255,0.06) !important;
-      --up-border-left-color: rgba(255,255,255,0.2) !important;
-      --tag-up-background-color: rgba(255,255,255,0.1) !important;
-      --tag-down-background-color: rgba(255,76,76,0.15) !important;
-      --graph-opacity: 0.8 !important;
+      --up-border-left-color: rgba(255,255,255,0.15) !important;
+      --tag-up-background-color: rgba(255,255,255,0.08) !important;
+      --tag-down-background-color: rgba(255,76,76,0.12) !important;
+      --graph-opacity: 0.85 !important;
     }
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    body, *, h1, h2, h3, h4, h5, h6, p, a, span, div, li, td, th, label, input, select, button, .title, .subtitle, .content, .navbar-item, .card-content, .card-content * {
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    *, *::before, *::after {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
     }
     body {
       background: #000000 !important;
       color: #e0e0e0 !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     .navbar, nav {
       background: #000000 !important;
-      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+      padding: 0.5rem 0 !important;
     }
     .navbar-brand .navbar-item, .navbar .navbar-item {
       color: #ffffff !important;
       font-weight: 600;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.8rem !important;
     }
     .section, .container, .hero, .hero-body {
       background: #000000 !important;
     }
+    .hero-body {
+      padding-top: 3rem !important;
+      padding-bottom: 1rem !important;
+    }
     .card, .box, article {
-      background: #111111 !important;
-      border: 1px solid rgba(255,255,255,0.06) !important;
-      border-radius: 16px !important;
+      background: #0a0a0a !important;
+      border: 1px solid rgba(255,255,255,0.04) !important;
+      border-radius: 12px !important;
+      overflow: hidden;
+    }
+    .card:hover, .box:hover, article:hover {
+      border-color: rgba(255,255,255,0.08) !important;
+      transform: translateY(-1px);
     }
     .card-content, .card-content *, .box, .box * {
       color: #e0e0e0 !important;
     }
-    h1, h2, h3, h4, .title, .hero-body .title, .hero-body .subtitle {
+    h1, .hero-body .title {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      font-size: 2.5rem !important;
+      letter-spacing: -0.03em !important;
+    }
+    h2, h3, h4, .title {
       color: #ffffff !important;
       font-weight: 600 !important;
+      letter-spacing: -0.02em !important;
     }
-    p, .subtitle, .content, span {
-      color: rgba(255,255,255,0.7) !important;
+    .hero-body .subtitle {
+      color: rgba(255,255,255,0.5) !important;
+      font-weight: 400 !important;
+      font-size: 1.1rem !important;
+    }
+    p, .subtitle, .content {
+      color: rgba(255,255,255,0.6) !important;
     }
     a, a:visited {
       color: #ffffff !important;
       text-decoration: none !important;
     }
     a:hover {
-      color: rgba(255,255,255,0.6) !important;
+      color: rgba(255,255,255,0.7) !important;
     }
     .tag.is-success, .status-up, .is-success {
-      background: rgba(255,255,255,0.1) !important;
-      color: #ffffff !important;
+      background: rgba(255,255,255,0.06) !important;
+      color: rgba(255,255,255,0.9) !important;
+      font-size: 0.75rem !important;
+      font-weight: 500 !important;
     }
     .tag.is-danger, .status-down, .is-danger {
-      background: rgba(255,76,76,0.15) !important;
+      background: rgba(255,76,76,0.1) !important;
       color: #ff6b6b !important;
+      font-size: 0.75rem !important;
+      font-weight: 500 !important;
     }
     .tag {
-      border-radius: 20px !important;
+      border-radius: 6px !important;
       font-weight: 500 !important;
+      padding: 0.4em 0.8em !important;
+      letter-spacing: 0.02em !important;
     }
     table, .table {
       background: transparent !important;
@@ -102,25 +135,102 @@ status-website:
     }
     table th, table td, .table th, .table td {
       background: transparent !important;
-      color: #e0e0e0 !important;
-      border-color: rgba(255,255,255,0.06) !important;
+      color: rgba(255,255,255,0.7) !important;
+      border-color: rgba(255,255,255,0.04) !important;
+      padding: 1rem 0.75rem !important;
     }
     table thead th {
-      color: #ffffff !important;
-      font-weight: 600 !important;
+      color: rgba(255,255,255,0.4) !important;
+      font-weight: 500 !important;
+      font-size: 0.75rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.06em !important;
     }
     footer, .footer {
       display: none !important;
     }
     input, select, .input, .select select {
-      background: #111111 !important;
+      background: #0a0a0a !important;
       color: #e0e0e0 !important;
-      border-color: rgba(255,255,255,0.1) !important;
+      border-color: rgba(255,255,255,0.08) !important;
       border-radius: 8px !important;
     }
-    ::selection {
-      background: rgba(255,255,255,0.2);
+    input:focus, select:focus, .input:focus {
+      border-color: rgba(255,255,255,0.2) !important;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.05) !important;
     }
+    ::selection {
+      background: rgba(255,255,255,0.15);
+    }
+    img[src*="graphs"] {
+      border-radius: 8px !important;
+      opacity: 0.85;
+    }
+    img[src*="graphs"]:hover {
+      opacity: 1;
+    }
+    .column {
+      padding: 0.5rem !important;
+    }
+  js: |
+    (function(){
+      var CACHE_TTL = 300000;
+      var origFetch = window.fetch;
+      window.fetch = function(url, opts) {
+        if (typeof url === 'string' && url.indexOf('api.github.com') !== -1) {
+          var cacheKey = 'gh_cache_' + url;
+          var cached = localStorage.getItem(cacheKey);
+          if (cached) {
+            try {
+              var data = JSON.parse(cached);
+              if (Date.now() - data.ts < CACHE_TTL) {
+                return Promise.resolve(new Response(JSON.stringify(data.body), {
+                  status: 200,
+                  headers: {'Content-Type': 'application/json'}
+                }));
+              }
+            } catch(e) {}
+          }
+          return origFetch.call(window, url, opts).then(function(resp) {
+            if (resp.ok) {
+              var cloned = resp.clone();
+              cloned.json().then(function(json) {
+                try {
+                  localStorage.setItem(cacheKey, JSON.stringify({ts: Date.now(), body: json}));
+                } catch(e) {}
+              });
+            }
+            if (resp.status === 403 || resp.status === 429) {
+              if (cached) {
+                try {
+                  var stale = JSON.parse(cached);
+                  return new Response(JSON.stringify(stale.body), {
+                    status: 200,
+                    headers: {'Content-Type': 'application/json'}
+                  });
+                } catch(e) {}
+              }
+            }
+            return resp;
+          }).catch(function(err) {
+            if (cached) {
+              try {
+                var stale = JSON.parse(cached);
+                return new Response(JSON.stringify(stale.body), {
+                  status: 200,
+                  headers: {'Content-Type': 'application/json'}
+                });
+              } catch(e) {}
+            }
+            throw err;
+          });
+        }
+        return origFetch.call(window, url, opts);
+      };
+      if (window.location.pathname.indexOf('rate-limit') !== -1) {
+        window.location.href = '/';
+      }
+    })();
 
 workflowSchedule:
   uptime: "*/5 * * * *"
