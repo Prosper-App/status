@@ -408,9 +408,22 @@ status-website:
         if(document.querySelector('.detail-container'))return;
         var slug=path.replace('/history/','').replace(/\/$/,'');
         if(!slug)return;
-        origFetch(RAW+'/history/summary.json').then(function(r){return r.json();}).then(function(sites){
+        /* Fetch both summary.json (stats) and live history yml (current status) */
+        Promise.all([
+          origFetch(RAW+'/history/summary.json').then(function(r){return r.json();}),
+          origFetch(RAW+'/history/'+slug+'.yml').then(function(r){return r.text();}).catch(function(){return '';})
+        ]).then(function(results){
+          var sites=results[0];var ymlText=results[1];
+          /* Parse live status from yml */
+          var liveStatus=null;
+          if(ymlText){
+            var m=ymlText.match(/status:\s*(\w+)/);
+            if(m)liveStatus=m[1];
+          }
           var site=sites.find(function(s){return s.slug===slug;});
           if(!site)return;
+          /* Override status with live data if available */
+          if(liveStatus)site.status=liveStatus;
           var main=document.querySelector('main');
           if(!main)return;
           while(main.firstChild)main.removeChild(main.firstChild);
@@ -527,11 +540,11 @@ status-website:
     })();
 
 workflowSchedule:
-  uptime: "*/5 * * * *"
+  uptime: "*/3 * * * *"
   responseTime: "0 23 * * *"
   graphs: "0 0 * * *"
   staticSite: "0 1 * * *"
-  summary: "0 0 * * *"
+  summary: "*/5 * * * *"
   updateTemplate: "0 0 * * *"
   updates: "0 3 * * *"
 
