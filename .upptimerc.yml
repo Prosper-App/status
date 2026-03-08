@@ -308,7 +308,7 @@ status-website:
   js: |
     (function(){
       var OWNER='Prosper-App',REPO='status';
-      var RAW='https://raw.githubusercontent.com/'+OWNER+'/'+REPO+'/master';
+      var RAW='https://raw.githubusercontent.com/'+OWNER+'/'+REPO+'/main';
       var CACHE_TTL=300000;
       var origFetch=window.fetch;
 
@@ -328,7 +328,25 @@ status-website:
 
       function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;return e;}
 
+      /* --- Build uptime bar from dailyMinutesDown data --- */
+      function buildUptimeBar(dailyDown){
+        var bar=el('div','uptime-bar');
+        var now=new Date();
+        for(var i=29;i>=0;i--){
+          var d=new Date(now);d.setDate(d.getDate()-i);
+          var key=d.toISOString().split('T')[0];
+          var mins=dailyDown&&dailyDown[key]?dailyDown[key]:0;
+          var cls=mins>0?'down':'up';
+          var seg=el('div','bar-seg '+cls);
+          if(mins>0)seg.title=key+': '+mins+' min down';
+          else seg.title=key+': operational';
+          bar.appendChild(seg);
+        }
+        return bar;
+      }
+
       /* --- Inject badges, uptime bars, move banner to nav, hide empties --- */
+      var summaryData=null;
       function enhance(){
         /* Detail page */
         enhanceDetail();
@@ -343,12 +361,11 @@ status-website:
           badge.appendChild(document.createTextNode(isUp?'Operational':'Down'));
           h4.appendChild(badge);
 
-          /* 30-segment uptime bar */
-          var bar=el('div','uptime-bar');
-          for(var i=0;i<30;i++){
-            var seg=el('div','bar-seg '+(isUp?'up':'unknown'));
-            bar.appendChild(seg);
-          }
+          /* Find matching site data for real uptime bar */
+          var linkEl=a.querySelector('h4 a');
+          var siteName=linkEl?linkEl.textContent.trim():'';
+          var siteData=summaryData?summaryData.find(function(s){return s.name===siteName;}):null;
+          var bar=buildUptimeBar(siteData?siteData.dailyMinutesDown:null);
           a.appendChild(bar);
           var lbl=el('div','bar-label');
           lbl.appendChild(el('span',null,'30 days ago'));
@@ -423,8 +440,7 @@ status-website:
           wrap.appendChild(stats);
           var barSec=el('div','detail-section');
           barSec.appendChild(el('h2','detail-section-title','Uptime (30 days)'));
-          var bar=el('div','uptime-bar');
-          for(var i=0;i<30;i++)bar.appendChild(el('div','bar-seg '+(isUp?'up':'unknown')));
+          var bar=buildUptimeBar(site.dailyMinutesDown);
           barSec.appendChild(bar);
           var lbl=el('div','bar-label');
           lbl.appendChild(el('span',null,'30 days ago'));
@@ -454,17 +470,16 @@ status-website:
         }).catch(function(){});
       }
 
-      /* --- Start MutationObserver safely --- */
+      /* --- Load summary data, then start observer --- */
       function startObserver(){
-        if(document.body){
+        function observe(){
           new MutationObserver(function(){enhance();}).observe(document.body,{childList:true,subtree:true});
           enhance();
-        }else{
-          document.addEventListener('DOMContentLoaded',function(){
-            new MutationObserver(function(){enhance();}).observe(document.body,{childList:true,subtree:true});
-            enhance();
-          });
         }
+        origFetch(RAW+'/history/summary.json').then(function(r){return r.json();}).then(function(d){summaryData=d;}).catch(function(){}).then(function(){
+          if(document.body){observe();}
+          else{document.addEventListener('DOMContentLoaded',observe);}
+        });
       }
       startObserver();
 
