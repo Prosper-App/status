@@ -22,18 +22,20 @@
     "url": "https://admin-stage.prosper.codes/health",
     "icon": "https://icons.duckduckgo.com/ip3/admin-stage.prosper.codes.ico",
     "slug": "prosper-admin-staging",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 495,
-    "timeDay": 365,
-    "timeWeek": 565,
-    "timeMonth": 495,
-    "timeYear": 495,
-    "dailyMinutesDown": {}
+    "time": 513,
+    "timeDay": 680,
+    "timeWeek": 601,
+    "timeMonth": 513,
+    "timeYear": 513,
+    "dailyMinutesDown": {
+      "2026-03-11": 0
+    }
   },
   {
     "name": "Prosper API (Production)",
