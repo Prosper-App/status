@@ -4,19 +4,19 @@
     "url": "https://stage.prosper.codes/health",
     "icon": "https://icons.duckduckgo.com/ip3/stage.prosper.codes.ico",
     "slug": "prosper-api-staging",
-    "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "99.99%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
-    "time": 1169,
-    "timeDay": 649,
-    "timeWeek": 679,
-    "timeMonth": 1169,
-    "timeYear": 1169,
+    "status": "up",
+    "uptime": "99.89%",
+    "uptimeDay": "98.37%",
+    "uptimeWeek": "99.77%",
+    "uptimeMonth": "99.89%",
+    "uptimeYear": "99.89%",
+    "time": 1146,
+    "timeDay": 498,
+    "timeWeek": 637,
+    "timeMonth": 1146,
+    "timeYear": 1146,
     "dailyMinutesDown": {
-      "2026-03-19": 0
+      "2026-03-19": 23
     }
   },
   {
