@@ -4,9 +4,9 @@
     "url": "https://stage.prosper.codes/health",
     "icon": "https://icons.duckduckgo.com/ip3/stage.prosper.codes.ico",
     "slug": "prosper-api-staging",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
@@ -15,7 +15,9 @@
     "timeWeek": 679,
     "timeMonth": 1169,
     "timeYear": 1169,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2026-03-19": 0
+    }
   },
   {
     "name": "Prosper Admin (Staging)",
