@@ -184,11 +184,17 @@ status-website:
       grid-template-columns: repeat(2, 1fr) !important;
       gap: 12px !important;
     }
+    .live-status .column {
+      display: flex !important;
+    }
     article.link {
       padding: 16px 20px !important;
       border-radius: 12px !important;
       background: #111 !important;
       border: 1px solid rgba(255,255,255,0.08) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      flex: 1 !important;
     }
     article.link:hover {
       border-color: rgba(255,255,255,0.14) !important;
@@ -354,17 +360,17 @@ status-website:
         /* Badges on article.link cards */
         document.querySelectorAll('article.link').forEach(function(a){
           if(a.dataset.enh)return;a.dataset.enh='1';
-          var isUp=a.classList.contains('up');
           var h4=a.querySelector('h4');if(!h4)return;
+
+          /* Find matching site data for real status */
+          var linkEl=a.querySelector('h4 a');
+          var siteName=linkEl?linkEl.textContent.trim():'';
+          var siteData=summaryData?summaryData.find(function(s){return s.name===siteName;}):null;
+          var isUp=siteData?siteData.status==='up':a.classList.contains('up');
           var badge=el('span','status-badge '+(isUp?'badge-up':'badge-down'));
           badge.appendChild(el('span','badge-dot'));
           badge.appendChild(document.createTextNode(isUp?'Operational':'Down'));
           h4.appendChild(badge);
-
-          /* Find matching site data for real uptime bar */
-          var linkEl=a.querySelector('h4 a');
-          var siteName=linkEl?linkEl.textContent.trim():'';
-          var siteData=summaryData?summaryData.find(function(s){return s.name===siteName;}):null;
           var bar=buildUptimeBar(siteData?siteData.dailyMinutesDown:null);
           a.appendChild(bar);
           var lbl=el('div','bar-label');
@@ -374,11 +380,11 @@ status-website:
         });
 
         /* Move banner into nav */
-        var banner=document.querySelector('article.up:not(.link)');
+        var banner=document.querySelector('article.up:not(.link)')||document.querySelector('article:not(.link)');
         if(banner&&!document.querySelector('.nav-status')){
           var navC=document.querySelector('nav .container')||document.querySelector('nav');
           if(navC){
-            var allUp=!document.querySelector('article.link.down');
+            var allUp=summaryData?summaryData.every(function(s){return s.status==='up';}):!document.querySelector('article.link.down');
             var ns=el('div','nav-status');
             ns.appendChild(el('div','nav-dot'+(allUp?'':' down')));
             ns.appendChild(document.createTextNode(allUp?'All systems operational':'Some systems down'));
