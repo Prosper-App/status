@@ -183,18 +183,15 @@ status-website:
       display: grid !important;
       grid-template-columns: repeat(2, 1fr) !important;
       gap: 12px !important;
+      align-items: stretch !important;
     }
-    .live-status .column {
-      display: flex !important;
-    }
-    article.link {
+    .live-status article.link {
       padding: 16px 20px !important;
       border-radius: 12px !important;
       background: #111 !important;
       border: 1px solid rgba(255,255,255,0.08) !important;
-      display: flex !important;
-      flex-direction: column !important;
-      flex: 1 !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
     }
     article.link:hover {
       border-color: rgba(255,255,255,0.14) !important;
