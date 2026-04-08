@@ -26,7 +26,7 @@
     "slug": "prosper-admin-staging",
     "status": "up",
     "uptime": "99.95%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "99.94%",
     "uptimeYear": "99.95%",
@@ -36,6 +36,7 @@
     "timeMonth": 505,
     "timeYear": 497,
     "dailyMinutesDown": {
+      "2026-04-08": 0,
       "2026-03-11": 25
     }
   },
