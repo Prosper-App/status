@@ -26,18 +26,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/admin-stage.prosper.codes.ico",
     "slug": "prosper-admin-staging",
     "status": "down",
-    "uptime": "99.23%",
-    "uptimeDay": "71.24%",
-    "uptimeWeek": "95.61%",
-    "uptimeMonth": "98.99%",
-    "uptimeYear": "99.23%",
+    "uptime": "99.22%",
+    "uptimeDay": "70.82%",
+    "uptimeWeek": "95.55%",
+    "uptimeMonth": "98.98%",
+    "uptimeYear": "99.22%",
     "time": 501,
     "timeDay": 463,
     "timeWeek": 528,
     "timeMonth": 506,
     "timeYear": 501,
     "dailyMinutesDown": {
-      "2026-04-15": 414,
+      "2026-04-15": 420,
       "2026-04-08": 29,
       "2026-03-11": 25
     }
@@ -48,18 +48,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.prosper.codes.ico",
     "slug": "prosper-api-production",
     "status": "down",
-    "uptime": "99.32%",
-    "uptimeDay": "71.24%",
-    "uptimeWeek": "95.89%",
-    "uptimeMonth": "99.05%",
-    "uptimeYear": "99.32%",
+    "uptime": "99.31%",
+    "uptimeDay": "70.82%",
+    "uptimeWeek": "95.83%",
+    "uptimeMonth": "99.04%",
+    "uptimeYear": "99.31%",
     "time": 857,
     "timeDay": 465,
     "timeWeek": 451,
     "timeMonth": 464,
     "timeYear": 857,
     "dailyMinutesDown": {
-      "2026-04-15": 414
+      "2026-04-15": 420
     }
   },
   {
@@ -68,18 +68,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/admin.prosper.codes.ico",
     "slug": "prosper-admin-production",
     "status": "down",
-    "uptime": "99.32%",
-    "uptimeDay": "71.24%",
-    "uptimeWeek": "95.89%",
-    "uptimeMonth": "99.05%",
-    "uptimeYear": "99.32%",
+    "uptime": "99.31%",
+    "uptimeDay": "70.82%",
+    "uptimeWeek": "95.83%",
+    "uptimeMonth": "99.04%",
+    "uptimeYear": "99.31%",
     "time": 511,
     "timeDay": 512,
     "timeWeek": 451,
     "timeMonth": 534,
     "timeYear": 511,
     "dailyMinutesDown": {
-      "2026-04-15": 414
+      "2026-04-15": 420
     }
   }
 ]
