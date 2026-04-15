@@ -5,18 +5,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/stage.prosper.codes.ico",
     "slug": "prosper-api-staging",
     "status": "down",
-    "uptime": "99.58%",
-    "uptimeDay": "84.21%",
-    "uptimeWeek": "97.74%",
-    "uptimeMonth": "99.43%",
-    "uptimeYear": "99.58%",
+    "uptime": "99.48%",
+    "uptimeDay": "79.67%",
+    "uptimeWeek": "97.10%",
+    "uptimeMonth": "99.28%",
+    "uptimeYear": "99.48%",
     "time": 863,
     "timeDay": 455,
     "timeWeek": 484,
     "timeMonth": 544,
     "timeYear": 863,
     "dailyMinutesDown": {
-      "2026-04-15": 227,
+      "2026-04-15": 293,
       "2026-03-19": 23
     }
   },
@@ -26,18 +26,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/admin-stage.prosper.codes.ico",
     "slug": "prosper-admin-staging",
     "status": "down",
-    "uptime": "99.54%",
-    "uptimeDay": "84.21%",
-    "uptimeWeek": "97.46%",
-    "uptimeMonth": "99.42%",
-    "uptimeYear": "99.54%",
+    "uptime": "99.43%",
+    "uptimeDay": "79.67%",
+    "uptimeWeek": "96.81%",
+    "uptimeMonth": "99.27%",
+    "uptimeYear": "99.43%",
     "time": 501,
     "timeDay": 463,
     "timeWeek": 528,
     "timeMonth": 506,
     "timeYear": 501,
     "dailyMinutesDown": {
-      "2026-04-15": 227,
+      "2026-04-15": 293,
       "2026-04-08": 29,
       "2026-03-11": 25
     }
@@ -48,18 +48,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.prosper.codes.ico",
     "slug": "prosper-api-production",
     "status": "down",
-    "uptime": "99.62%",
-    "uptimeDay": "84.21%",
-    "uptimeWeek": "97.74%",
-    "uptimeMonth": "99.48%",
-    "uptimeYear": "99.62%",
+    "uptime": "99.52%",
+    "uptimeDay": "79.67%",
+    "uptimeWeek": "97.10%",
+    "uptimeMonth": "99.33%",
+    "uptimeYear": "99.52%",
     "time": 857,
     "timeDay": 465,
     "timeWeek": 451,
     "timeMonth": 464,
     "timeYear": 857,
     "dailyMinutesDown": {
-      "2026-04-15": 227
+      "2026-04-15": 293
     }
   },
   {
@@ -68,18 +68,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/admin.prosper.codes.ico",
     "slug": "prosper-admin-production",
     "status": "down",
-    "uptime": "99.62%",
-    "uptimeDay": "84.22%",
-    "uptimeWeek": "97.75%",
-    "uptimeMonth": "99.48%",
-    "uptimeYear": "99.62%",
+    "uptime": "99.52%",
+    "uptimeDay": "79.67%",
+    "uptimeWeek": "97.10%",
+    "uptimeMonth": "99.33%",
+    "uptimeYear": "99.52%",
     "time": 511,
     "timeDay": 512,
     "timeWeek": 451,
     "timeMonth": 534,
     "timeYear": 511,
     "dailyMinutesDown": {
-      "2026-04-15": 227
+      "2026-04-15": 293
     }
   }
 ]
