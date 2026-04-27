@@ -5,21 +5,17 @@
     "icon": "https://icons.duckduckgo.com/ip3/stage.prosper.codes.ico",
     "slug": "prosper-api-staging",
     "status": "up",
-    "uptime": "99.40%",
+    "uptime": "100.00%",
     "uptimeDay": "100.00%",
-    "uptimeWeek": "99.68%",
-    "uptimeMonth": "98.98%",
-    "uptimeYear": "99.40%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 837,
     "timeDay": 822,
     "timeWeek": 518,
     "timeMonth": 596,
     "timeYear": 837,
-    "dailyMinutesDown": {
-      "2026-04-22": 33,
-      "2026-04-15": 414,
-      "2026-03-19": 23
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "Prosper Admin (Staging)",
