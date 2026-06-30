@@ -5,11 +5,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/stage.prosper.codes.ico",
     "slug": "prosper-api-staging",
     "status": "down",
-    "uptime": "98.91%",
-    "uptimeDay": "75.83%",
-    "uptimeWeek": "96.55%",
-    "uptimeMonth": "99.21%",
-    "uptimeYear": "98.91%",
+    "uptime": "98.89%",
+    "uptimeDay": "73.49%",
+    "uptimeWeek": "96.21%",
+    "uptimeMonth": "99.13%",
+    "uptimeYear": "98.89%",
     "time": 731,
     "timeDay": 174,
     "timeWeek": 423,
@@ -23,7 +23,7 @@
       "2026-05-05": 197,
       "2026-05-09": 368,
       "2026-05-08": 449,
-      "2026-06-30": 348
+      "2026-06-30": 382
     }
   },
   {
@@ -32,11 +32,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/admin-stage.prosper.codes.ico",
     "slug": "prosper-admin-staging",
     "status": "down",
-    "uptime": "99.51%",
-    "uptimeDay": "75.84%",
-    "uptimeWeek": "96.55%",
-    "uptimeMonth": "99.21%",
-    "uptimeYear": "99.51%",
+    "uptime": "99.49%",
+    "uptimeDay": "73.51%",
+    "uptimeWeek": "96.22%",
+    "uptimeMonth": "99.13%",
+    "uptimeYear": "99.49%",
     "time": 459,
     "timeDay": 198,
     "timeWeek": 304,
@@ -46,7 +46,7 @@
       "2026-03-11": 25,
       "2026-04-08": 29,
       "2026-04-15": 438,
-      "2026-06-30": 348
+      "2026-06-30": 382
     }
   },
   {
@@ -55,11 +55,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.prosper.codes.ico",
     "slug": "prosper-api-production",
     "status": "down",
-    "uptime": "99.54%",
-    "uptimeDay": "75.86%",
-    "uptimeWeek": "96.55%",
-    "uptimeMonth": "99.21%",
-    "uptimeYear": "99.54%",
+    "uptime": "99.52%",
+    "uptimeDay": "73.52%",
+    "uptimeWeek": "96.22%",
+    "uptimeMonth": "99.13%",
+    "uptimeYear": "99.52%",
     "time": 594,
     "timeDay": 115,
     "timeWeek": 368,
@@ -67,7 +67,7 @@
     "timeYear": 594,
     "dailyMinutesDown": {
       "2026-04-15": 438,
-      "2026-06-30": 348
+      "2026-06-30": 381
     }
   },
   {
@@ -76,11 +76,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/admin.prosper.codes.ico",
     "slug": "prosper-admin-production",
     "status": "down",
-    "uptime": "99.50%",
-    "uptimeDay": "75.87%",
-    "uptimeWeek": "96.55%",
-    "uptimeMonth": "99.21%",
-    "uptimeYear": "99.50%",
+    "uptime": "99.48%",
+    "uptimeDay": "73.54%",
+    "uptimeWeek": "96.22%",
+    "uptimeMonth": "99.13%",
+    "uptimeYear": "99.48%",
     "time": 510,
     "timeDay": 306,
     "timeWeek": 494,
@@ -89,7 +89,7 @@
     "dailyMinutesDown": {
       "2026-04-15": 438,
       "2026-05-18": 75,
-      "2026-06-30": 347
+      "2026-06-30": 381
     }
   }
 ]
